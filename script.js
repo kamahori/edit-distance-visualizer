@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const op = firstTargetOps[i];
                     
                     const charBox = document.createElement('div');
-                    charBox.className = `char-box ${op.type}`;
+                    charBox.className = 'char-box match';
                     charBox.style.minWidth = boxSize;
                     charBox.style.fontSize = fontSize;
                     
