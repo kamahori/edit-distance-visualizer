@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Edit Distance Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Distance Visualizer</h1>
+    <div class="input-container">
+        <div class="input-group">
+            <label for="reference-string">Reference String:</label>
+            <textarea id="reference-string" placeholder="Enter reference string (can be any length)"></textarea>
+        </div>
+        
+        <div id="target-strings-container">
+            <div class="input-group target-string-group">
+                <label for="target-string-1">Target String 1:</label>
+                <textarea id="target-string-1" class="target-string" placeholder="Enter target string (can be any length)"></textarea>
+                <button class="remove-string-btn" data-id="1">Remove</button>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button id="add-string-btn">Add Target String</button>
+        </div>
+    </div>
+        <div class="results">
+            <div id="results-container">
+                <!-- Results will be dynamically added here -->
+            </div>
+            <div class="legend">
+                <h3>Legend:</h3>
+                <div class="legend-item">
+                    <span class="color-box match"></span> Match
+                </div>
+                <div class="legend-item">
+                    <span class="color-box insertion"></span> Insertion
+                </div>
+                <div class="legend-item">
+                    <span class="color-box deletion"></span> Deletion
+                </div>
+                <div class="legend-item">
+                    <span class="color-box substitution"></span> Substitution
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
