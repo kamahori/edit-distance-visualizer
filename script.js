@@ -297,20 +297,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const str1Label = document.createElement('div');
             str1Label.textContent = `Reference${rowLabel}`;
             str1Label.style.fontWeight = 'bold';
-            str1Label.style.minWidth = '80px';
+            str1Label.style.minWidth = '150px';
+            str1Label.style.width = 'fit-content';
             str1Label.style.backgroundColor = '#f9f9f9';
+            str1Label.style.whiteSpace = 'nowrap';
             
             const str2Label = document.createElement('div');
             str2Label.textContent = `Target${rowLabel}`;
             str2Label.style.fontWeight = 'bold';
-            str2Label.style.minWidth = '80px';
+            str2Label.style.minWidth = '150px';
+            str2Label.style.width = 'fit-content';
             str2Label.style.backgroundColor = '#f9f9f9';
+            str2Label.style.whiteSpace = 'nowrap';
             
             // Create wrapper divs with labels
             const str1Wrapper = document.createElement('div');
             str1Wrapper.className = 'char-row-wrapper';
             str1Wrapper.style.display = 'flex';
             str1Wrapper.style.flexWrap = 'wrap';
+            str1Wrapper.style.alignItems = 'center';
             str1Wrapper.appendChild(str1Label);
             str1Wrapper.appendChild(str1Row);
             
@@ -318,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
             str2Wrapper.className = 'char-row-wrapper';
             str2Wrapper.style.display = 'flex';
             str2Wrapper.style.flexWrap = 'wrap';
+            str2Wrapper.style.alignItems = 'center';
             str2Wrapper.appendChild(str2Label);
             str2Wrapper.appendChild(str2Row);
             
@@ -445,15 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const containerWidth = visualizationContainer.clientWidth - 100;
         const charWidth = parseInt(boxSize) + 2;
         
-        // Make charsPerRow responsive to container width
-        let charsPerRow;
-        if (window.innerWidth <= 480) {
-            charsPerRow = Math.max(4, Math.floor(containerWidth / charWidth));
-        } else if (window.innerWidth <= 768) {
-            charsPerRow = Math.max(6, Math.floor(containerWidth / charWidth));
-        } else {
-            charsPerRow = Math.max(8, Math.floor(containerWidth / charWidth));
-        }
+        // Fix the length per line to be 40 characters
+        const charsPerRow = 40;
         
         // Find the maximum length of operations across all target strings
         const maxOperationsLength = Math.max(...targetResults.map(result => result.operations.length));
@@ -483,12 +482,18 @@ document.addEventListener('DOMContentLoaded', () => {
             refWrapper.className = 'char-row-wrapper';
             refWrapper.style.display = 'flex';
             refWrapper.style.flexWrap = 'wrap';
+            refWrapper.style.alignItems = 'center';
             
             const refLabel = document.createElement('div');
             refLabel.textContent = `Reference${rowLabel}`;
             refLabel.style.fontWeight = 'bold';
-            refLabel.style.minWidth = '80px';
+            refLabel.style.minWidth = '150px';
+            refLabel.style.width = 'fit-content';
+            refLabel.style.textAlign = 'right';
+            refLabel.style.paddingRight = '10px';
+            refLabel.style.padding = '5px';
             refLabel.style.backgroundColor = '#f9f9f9';
+            refLabel.style.whiteSpace = 'nowrap';
             
             const refRow = document.createElement('div');
             refRow.className = 'char-row';
@@ -530,7 +535,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetLabel = document.createElement('div');
                 targetLabel.textContent = `Target ${index + 1}${rowLabel}`;
                 targetLabel.style.fontWeight = 'bold';
-                targetLabel.style.minWidth = '80px';
+                targetLabel.style.width = '150px';
+                targetLabel.style.textAlign = 'right';
+                targetLabel.style.paddingRight = '10px';
+                targetLabel.style.padding = '5px';
                 targetLabel.style.backgroundColor = '#f9f9f9';
                 
                 const targetRow = document.createElement('div');
